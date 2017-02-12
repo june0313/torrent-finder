@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Torrent finder</title>
+
+    <link href="css/popup.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="app" class="container">
+    <form class="form-inline">
+        <div class="form-group">
+            <input type="text" class="form-control" id="program-name" placeholder="프로그램 이름">
+        </div>
+        <div class="form-group">
+            <label for="day-selector" class="sr-only">방송 요일</label>
+            <select class="form-control" id="day-selector">
+                <option value="1">월요일</option>
+                <option value="2">화요일</option>
+                <option value="3">수요일</option>
+                <option value="4">목요일</option>
+                <option value="5">금요일</option>
+                <option value="6">토요일</option>
+                <option value="0">일요일</option>
+            </select>
+        </div>
+
+        <button type="button" class="btn btn-primary" id="btn-add-program">추가</button>
+        <button type="button" class="btn btn-danger" id="btn-delete-all-program">전체 삭제</button>
+    </form>
+
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">방송 목록</div>
+        <div class="list-group" id="program-list"></div>
+    </div>
+
+
+</div>
+
+<script src="lib/js/moment/moment.min.js"></script>
+<script src="lib/js/jquery/jquery-3.1.1.min.js"></script>
+<script src="lib/js/bootstrap/bootstrap.min.js"></script>
+<script src="app/popup.js"></script>
+</body>
+</html>

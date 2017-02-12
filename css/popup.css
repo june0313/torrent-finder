@@ -1,0 +1,8 @@
+body {
+    min-width: 768px;
+}
+
+.form-inline {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
