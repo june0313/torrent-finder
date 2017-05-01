@@ -1,18 +1,16 @@
 import $ from 'jquery';
 import storage from './chrome-storage';
-import listItemBuilder from './list-ltem-builder';
+import programItemRowBuilder from './program-item-row-builder';
 
-let torrentFinder = function () {
+const torrentFinder = function () {
 	const programName = $('#program-name');
 	const daySelector = $('#day-selector');
 	const addButton = $('#btn-add-program');
 	const deleteAllButton = $('#btn-delete-all-program');
-	const programList = $('#program-list');
+	const programTableBody = $('#program-table-body');
 
 	function init () {
-		storage.get('data', function (result) {
-			displayProgramDataList(result['data']);
-		});
+		storage.get('data', result => displayProgramDataList(result['data']));
 	}
 
 	function bindEvent () {
@@ -30,11 +28,10 @@ let torrentFinder = function () {
 	}
 
 	function displayProgramDataList(programDataList) {
-		programList.empty();
-
+		programTableBody.empty();
 		$(programDataList).each(function () {
-			let anchorElement = listItemBuilder.build(this);
-			programList.append(anchorElement);
+			let programItemRow = programItemRowBuilder.build(this);
+			programTableBody.append(programItemRow);
 		});
 	}
 
